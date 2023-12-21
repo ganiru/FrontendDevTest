@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [items, setItems] = useState([]);
  const [loading, setLoading] = useState(true);
  const [error, setError] = useState(null);
- const [searchTerm, setSearchTerm] = useState('teter');
+ const [searchTerm, setSearchTerm] = useState('');
 
  useEffect(() => {
    fetch('https://jsonplaceholder.typicode.com/todos')
@@ -26,7 +25,7 @@ function App() {
        setLoading(false);
      });
  }, []);
-console.log({items});
+ 
  const filteredItems = items.filter(item =>
    item.title.toLowerCase().includes(searchTerm.toLowerCase())
  );
